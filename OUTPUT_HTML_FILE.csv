@@ -1,0 +1,14 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8"/></head><body>
+<p>Analyzed file: C:/Users/shamnas v m/Desktop/Exam Qgis/Malappuram_LULC_2018_Final.tif (band 1)</p>
+<p>Extent: 75.8258049857162746,10.6796212552549310 : 76.5407741203469953,11.5187375621509762</p>
+<p>Projection: EPSG:4326 - WGS 84</p>
+<p>Width in pixels: 7959 (units per pixel 8.98315e-05)</p>
+<p>Height in pixels: 9341 (units per pixel 8.98315e-05)</p>
+<p>Total pixel count: 74345019</p>
+<table><tr><td>Value</td><td>Pixel count</td><td>Area (deg&#178;)</td></tr>
+<tr><td>0</td><td>40338109</td><td>0.3255165792527006</td></tr>
+<tr><td>1</td><td>16882807</td><td>0.1362392466841603</td></tr>
+<tr><td>2</td><td>388924</td><td>0.003138501362800059</td></tr>
+<tr><td>3</td><td>16735179</td><td>0.1350479324963307</td></tr>
+</table>
+</body></html>

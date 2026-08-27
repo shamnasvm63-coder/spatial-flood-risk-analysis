@@ -1,11 +1,39 @@
-# 🌊 Spatial Flood Risk Analysis: Malappuram District (2018–2024)
+<p align="center">
+  <img src="./flood_risk_map_preview.png" width="850" alt="Malappuram Flood Risk Preview Map">
+</p>
 
-### LULC Classification and Flood Vulnerability Mapping using Sentinel-2 & CART Machine Learning
+<h1 align="center">🌊 Spatial Flood Risk Analysis: Malappuram District (2018–2024)</h1>
+<h3 align="center">LULC Classification & Flood Vulnerability Mapping using Sentinel-2 & CART Machine Learning</h3>
 
-**Author:** Shamnas Valangauparambil Mohammedali
-**Degree:** MSc Transition Management, Justus Liebig University Giessen
-**Tools:** Python · Google Earth Engine · QGIS · Sentinel-2 · CART Algorithm
-**Status:** ✅ Complete — Portfolio Project 2 of 5
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/Google%20Earth%20Engine-Geospatial%20Analysis-34A853?logo=googleearth&logoColor=white">
+  <img src="https://img.shields.io/badge/QGIS-3.x-589632?logo=qgis&logoColor=white">
+  <img src="https://img.shields.io/badge/Sentinel--2-MSI%20L2A-0072CE">
+  <img src="https://img.shields.io/badge/Status-Complete-brightgreen">
+  <img src="https://img.shields.io/badge/License-Academic%20Use-lightgrey">
+</p>
+
+<p align="center">
+  <b>Author:</b> Shamnas Valangauparambil Mohammedali &nbsp;|&nbsp;
+  <b>Degree:</b> MSc Transition Management, Justus Liebig University Giessen
+</p>
+
+---
+
+## 📑 Table of Contents
+
+- [Project Overview](#-project-overview)
+- [Maps & Results](#️-maps--results)
+- [Repository Structure](#-repository-structure)
+- [Large Data Access](#-large-data-access-geotiff-rasters)
+- [Methodology](#️-methodology)
+- [Key Results](#-key-results)
+- [How to Reproduce](#-how-to-reproduce)
+- [UN SDG Alignment](#-un-sdg-alignment)
+- [Key Technical Skills Demonstrated](#-key-technical-skills-demonstrated)
+- [Relevance to ESG & Environmental Roles](#-relevance-to-esg--environmental-roles)
+- [Connect](#-connect)
 
 ---
 
@@ -21,8 +49,45 @@ The analysis identified a critical **"Hydrological Shift"** — a structural reo
 
 ## 🖼️ Maps & Results
 
-### 2024 Land Use Classification Map
-![2024 Classified Map](./Maps/Map4_2024_Classified.png)
+<table>
+<tr>
+<td width="50%">
+<p align="center"><b>2018 Baseline Classification</b><br>(Post-Flood)</p>
+<img src="./Maps/Map2_2018_Classified.png" width="100%">
+</td>
+<td width="50%">
+<p align="center"><b>2024 Classification</b><br>(Current State)</p>
+<img src="./Maps/Map4_2024_Classified.png" width="100%">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p align="center"><b>2024 Malappuram LULC Overview</b></p>
+<img src="./Maps/Map7_Malappuram_LULC_2024.png" width="100%">
+</td>
+<td width="50%">
+<p align="center"><b>NDVI Vegetation Index</b></p>
+<img src="./Maps/Map%207_NDVI.png" width="100%">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p align="center"><b>Training Points Methodology</b></p>
+<img src="./Maps/Map6_Training_Points_Methodology.png" width="100%">
+</td>
+<td width="50%">
+<p align="center"><b>LULC Change Analysis (2018 → 2024)</b></p>
+<img src="./Maps/Map_08_LULC_Change_Analysis_Final.jpg" width="100%">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p align="center"><b>Accuracy Validation (Zoomed)</b></p>
+<img src="./Maps/Map_09_Accuracy_Validation_Zoom.jpg" width="100%">
+</td>
+<td width="50%"></td>
+</tr>
+</table>
 
 > Full-resolution maps available in the [/Maps](./Maps/) folder.
 
@@ -32,13 +97,19 @@ The analysis identified a critical **"Hydrological Shift"** — a structural reo
 
 ```
 spatial-flood-risk-analysis/
-├── malappuram_cart_classification_2024.py   # GEE Python script — CART classification
-├── Malapuram Traininpoints/                 # Training point shapefiles for model calibration
-├── Maps/                                    # High-resolution classification output maps
-│   ├── Map4_2024_Classified.png             # 2024 LULC classification result
-│   └── [additional maps]
-├── OUTPUT_HTML_FILE.csv                     # Pixel counts and area statistics from QGIS
-├── Group 13 Final Report.docx               # Full methodology and analysis report
+├── malappuram_cart_classification_2024.py   # QGIS Earth Engine (ee_plugin) script — CART classification
+├── Malappuram Training Points/               # Field-verified training & validation shapefiles
+├── Maps/                                     # High-resolution classification output maps (7 images)
+│   ├── Map2_2018_Classified.png              # 2018 baseline classification
+│   ├── Map4_2024_Classified.png              # 2024 classification result
+│   ├── Map7_Malappuram_LULC_2024.png         # 2024 LULC overview
+│   ├── Map 7_NDVI.png                        # NDVI vegetation index
+│   ├── Map6_Training_Points_Methodology.png  # Training points methodology
+│   ├── Map_08_LULC_Change_Analysis_Final.jpg # Change analysis (2018→2024)
+│   └── Map_09_Accuracy_Validation_Zoom.jpg   # Accuracy validation (zoomed)
+├── flood_risk_map_preview.png                # Repository preview banner
+├── OUTPUT_HTML_FILE.csv                      # Pixel counts and area statistics from QGIS
+├── QGIS Final Report.docx                     # Full methodology and analysis report
 └── README.md
 ```
 
@@ -46,14 +117,13 @@ spatial-flood-risk-analysis/
 
 ## 💾 Large Data Access (GeoTIFF Rasters)
 
-Due to GitHub's 25MB file size limit, raw high-resolution GeoTIFF rasters are hosted externally:
+Due to GitHub's 25MB file size limit, the two raw high-resolution GeoTIFF rasters are hosted externally. Training and validation shapefiles are **included directly in this repository** under [`/Malappuram Training Points`](./Malappuram%20Training%20Points/) — only the rasters below need a separate download.
 
 📥 **[Download Raw .tif Rasters — 2018 & 2024 (Google Drive)](https://drive.google.com/drive/folders/13d-R1bNFMPGukvrqfEHvV1RQfb9UMwlw?usp=sharing)**
 
 Files included:
-- `malappuram_2018_classified.tif` — Post-flood baseline classification
-- `malappuram_2024_classified.tif` — Current state classification
-- Training and validation shapefiles
+- `Malappuram_LULC_2018_Final.tif` — Post-flood baseline classification
+- `Malappuram_LULC_2024_Final.tif` — Current state classification
 
 ---
 
@@ -61,13 +131,13 @@ Files included:
 
 ### 1. Data Acquisition
 - **Satellite:** Sentinel-2 MSI Level-2A (10m resolution, atmospherically corrected)
-- **Platform:** Google Earth Engine (GEE) Python API
+- **Platform:** Google Earth Engine (GEE), accessed via the QGIS Earth Engine plugin
 - **Time points:** 2018 (immediately post-flood) and 2024 (current state)
 - **Cloud masking:** Applied SCL band cloud/shadow masking, <10% cloud cover threshold
 
 ### 2. Classification
 - **Algorithm:** CART (Classification and Regression Tree) — supervised ML classifier
-- **Training data:** Field-verified training points (shapefiles in `/Malapuram Traininpoints/`)
+- **Training data:** Field-verified training points (shapefiles in `/Malappuram Training Points/`)
 - **Classes:** Water, Built-up, Vegetation, Bare soil, Saturated/Flood-prone zones
 - **Validation accuracy:** ~74% overall accuracy with robust Kappa coefficient
 
@@ -86,7 +156,7 @@ Files included:
 ## 📊 Key Results
 
 | Metric | 2018 Baseline | 2024 Current |
-|--------|--------------|--------------|
+|--------|---------------|--------------|
 | Saturated/High-risk zones | Reference | +512.49 km² increase |
 | Urban pixel count | 40,338,109 | See `OUTPUT_HTML_FILE.csv` |
 | Classification accuracy | ~74% | Kappa: Robust |
@@ -98,31 +168,26 @@ Files included:
 
 ## 🚀 How to Reproduce
 
-### Prerequisites
-```bash
-# Install Google Earth Engine Python API
-pip install earthengine-api
+This project's Earth Engine script was developed and run **inside QGIS**, using the **Google Earth Engine plugin (`ee_plugin`)** — not as a standalone Python script. To reproduce it:
 
-# Authenticate with your GEE account
-earthengine authenticate
-```
+### Prerequisites
+1. Install [QGIS](https://qgis.org/) (3.x)
+2. In QGIS, open **Plugins → Manage and Install Plugins**, search for **"Google Earth Engine"**, and install the plugin
+3. Follow the plugin's authentication steps to connect your GEE account
 
 ### Run the Classification
-```python
-# Clone this repository
-git clone https://github.com/shamnasvm63-coder/spatial-flood-risk-analysis
-
-# Open the main script
-# malappuram_cart_classification_2024.py
-
-# Run in Python (GEE Python API)
-python malappuram_cart_classification_2024.py
-```
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/shamnasvm63-coder/spatial-flood-risk-analysis
+   ```
+2. Open QGIS and launch the **Python Console** (Plugins → Python Console)
+3. Open and run `malappuram_cart_classification_2024.py` from the console
+4. Training points from `/Malappuram Training Points/` are loaded automatically by the script
 
 ### View Results in QGIS
-1. Download GeoTIFF files from the Google Drive link above
+1. Download the GeoTIFF files from the Google Drive link above
 2. Load into QGIS (Layer → Add Layer → Add Raster Layer)
-3. Apply classification symbology from the project `.qml` style files
+3. Apply classification symbology to match the maps in `/Maps`
 4. Export statistics using Raster → Miscellaneous → Zonal Statistics
 
 ---
@@ -142,7 +207,7 @@ python malappuram_cart_classification_2024.py
 - **Remote Sensing:** Sentinel-2 image processing, cloud masking, band combination
 - **Machine Learning:** CART supervised classification, training sample design, accuracy assessment
 - **GIS Analysis:** QGIS spatial statistics, raster overlay, area calculation
-- **Python:** Google Earth Engine Python API for large-scale satellite data processing
+- **Geospatial Scripting:** Google Earth Engine API via QGIS for large-scale satellite data processing
 - **Change Detection:** Multi-temporal LULC comparison methodology
 
 ---
@@ -153,17 +218,17 @@ This project demonstrates competencies directly applicable to:
 
 - **Climate Risk Analysis** — Physical risk mapping methodology used by insurers, development banks, and TCFD reporters
 - **Environmental Consulting** — Land use change monitoring required for environmental impact assessments
-- **Geospatial ESG** — Remote sensing techniques used by Alpin Limited, AECOM, and GIZ for sustainability monitoring
+- **Geospatial ESG** — Remote sensing techniques used for sustainability and climate-risk monitoring
 - **SDG Reporting** — Spatial analysis of SDG 11, 13, and 15 indicators
 
 ---
 
 ## 🔗 Connect
 
-- **LinkedIn:** linkedin.com/in/shamnas-vm-89931b365
+- **LinkedIn:** [linkedin.com/in/shamnas-vm-89931b365](https://linkedin.com/in/shamnas-vm-89931b365)
 - **Email:** shamnasvm63@gmail.com
 - **University:** MSc Transition Management, JLU Giessen, Germany
 
 ---
 
-
+<p align="center"><i>⭐ If this project is useful to you, consider starring the repository.</i></p>
